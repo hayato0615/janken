@@ -2,12 +2,15 @@ const express = require("express");
 const app = express();
 app.set('view engine', 'ejs');
 app.use("/public", express.static(__dirname + "/public"));
+
+//locallhost:3000の処理
 app.get("/", (req, res) => {
 const message = "入力してください";
 const aa="相手の手は何かな";
 res.render('show', {mes:message,mes2:aa});
 });
 
+//フォームが送信された時の処理
 app.get("/top", (req, res) => {
 let jj=Math.floor(Math.random()*3);
 let aa=req.query.message;
@@ -36,7 +39,6 @@ if(jj==0){
   ss="パー";
 }
 res.rend
-
 
 if(aa==0){
   sss="グー";
